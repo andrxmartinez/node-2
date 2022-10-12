@@ -2,7 +2,7 @@
 http://localhost:8080/tasks
 ################################################
 //render
-# GET https://cse341-2.onrender.com/contacts/632de84ae1475b0db72e424a
+# GET https://project2-am.onrender.com
 
 ###################################################
 ###CREATE NEW CONTACT
@@ -19,4 +19,7 @@ Content-Type: application/json
   "priority": "high"
 }
 
+
+#  POST https://project2-am.onrender.com/tasks HTTP/1.1
+# Content-Type: application/json
 ###################################################
