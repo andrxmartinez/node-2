@@ -5,10 +5,10 @@
     "description": "contact information API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "project2-am.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
