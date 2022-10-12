@@ -1,0 +1,22 @@
+//local host
+http://localhost:8080/tasks
+################################################
+//render
+# GET https://cse341-2.onrender.com/contacts/632de84ae1475b0db72e424a
+
+###################################################
+###CREATE NEW CONTACT
+POST http://localhost:8080/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+    "activity": "Put gas in the car",
+    "duration": "30 minutes",
+    "date": "10/12/2022",
+    "time": "09:00",
+    "place": "costco",
+    "description": "fill up the tank and get a new air filter",
+  "priority": "high"
+}
+
+###################################################

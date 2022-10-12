@@ -1,0 +1,28 @@
+{
+  "name": "2",
+  "version": "1.0.0",
+  "description": "The following is a to-do list built using nodeJS. It uses the REST architecture and CRUD model.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrxmartinez/node-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrxmartinez/node-2/issues"
+  },
+  "homepage": "https://github.com/andrxmartinez/node-2#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.10.0",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.5.0"
+  }
+}
