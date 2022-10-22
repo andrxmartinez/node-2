@@ -9,4 +9,8 @@ router.get("/:id", tasksController.getSingleTask);
 
 router.post("/", tasksController.createTask);
 
+// router.put("/:id", tasksController.updateTask);
+
+// router.delete("/:id", tasksController.deleteTask);
+
 module.exports = router;
