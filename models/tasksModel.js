@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const taskSchema = new mongoose.Schema({
   activity: {
     type: String,
-    required: [true, "An activity must have a name"],
     unique: true,
   },
   duration: {
@@ -12,7 +11,6 @@ const taskSchema = new mongoose.Schema({
 
   date: {
     type: String,
-    required: [true, "An activity must have a date"],
   },
 
   time: {
@@ -21,12 +19,12 @@ const taskSchema = new mongoose.Schema({
 
   place: {
     type: String,
-    required: [true, "An activity must have a place"],
   },
 
   description: {
     type: String,
-    required: [true, "An activity must have a description"],
+    maxlength: [1000, "Description cannot be more than 1000 characters"],
+    minlength: [10, "Description cannot be less than 10 characters"],
   },
 
   priority: {
@@ -42,3 +40,23 @@ const taskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task", taskSchema);
 
 module.exports = Task;
+
+// const testTask = new Task({
+//   activity: "test",
+//   duration: "test",
+//   date: "test",
+//   time: "test",
+//   place: "test",
+//   description: "test",
+//   priority: "test",
+//   completed: false,
+// });
+
+// testTask
+//   .save()
+//   .then((doc) => {
+//     console.log(doc);
+//   })
+//   .catch((err) => {
+//     console.log("ERROR: ", err);
+//   });

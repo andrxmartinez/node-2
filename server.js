@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require("dotenv");
+const routes = require("./routes");
 
 const app = express();
 dotenv.config({ path: "./.env" });
 // const app = require("./app");
 
+app.use(routes);
 const DB = process.env.DATABASE;
 
 mongoose
@@ -15,12 +17,12 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB connection successful!"));
-
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+  .then(() => {
+    const port = process.env.PORT || 8080;
+    app.listen(port, () => {
+      console.log(`App running on port ${port}...`);
+    });
+  });
 
 ////////////////////////////////////////////
 
