@@ -4,6 +4,7 @@ const taskSchema = new mongoose.Schema({
   activity: {
     type: String,
     unique: true,
+    required: [true, "Please enter an activity"],
   },
   duration: {
     type: String,
@@ -11,6 +12,7 @@ const taskSchema = new mongoose.Schema({
 
   date: {
     type: String,
+    required: [true, "Please enter a date"],
   },
 
   time: {
@@ -19,6 +21,7 @@ const taskSchema = new mongoose.Schema({
 
   place: {
     type: String,
+    required: [true, "Please enter a place"],
   },
 
   description: {
@@ -40,6 +43,10 @@ const taskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task", taskSchema);
 
 module.exports = Task;
+
+
+
+//test task
 
 // const testTask = new Task({
 //   activity: "test",

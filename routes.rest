@@ -8,40 +8,37 @@ http://localhost:8080/tasks
 ###CREATE NEW TASK
 POST http://localhost:8080/tasks HTTP/1.1
 Content-Type: application/json
-
-{
-  "activity": "new task",
-  "description": "new task description",
+  
+  {
+  "activity": "plant a tree",
+  "duration": "1 hour",
+  "date": "10/10/2020",
+  "time": "09:00",
+  "place": "Rexburg Downtown",
+  "description": "Walk the dog around the block",
+  "priority": "medium"
 }
 
-# {
-#   "activity": "Put gas in the car",
-#   "duration": "30 minutes",
-#   "date": "10/12/2022",
-#   "time": "09:00",
-#   "place": "costco",
-#   "description": "fill up the tank and get a new air filter",
-#   "priority": "high"
-# }
 
+###################################################
 #  POST https://project2-am.onrender.com/tasks HTTP/1.1
 # Content-Type: application/json
 ###################################################
 ## UPDATE TASK
 
 PUT http://localhost:8080/tasks/6345f423a0e046f19ab46385 HTTP/1.1
+Content-Type: application/json
 
 {
-    "activity": "Deposit cash into the bank",
-    "duration": "30 minutes",
-    "date": "10/19/2022",
-    "time": "14:00",
-    "place": "bank of america",
-    "description": "Deposit the cash for the money I borrowed from my friend",
-    "priority": "high",
-    "completed": true  
+  "activity": "Go party",
+  "duration": "3 hours",
+  "date": "10/12/2022",
+  "time": "09:00",
+  "place": "Rexburg Downtown",
+  "description": "go party with friends on the weekend",
+  "priority": "medium"
 }
 
 ##############################################################################
 # DELETE TASK
-DELETE http://localhost:8080/tasks/63574d19a76c231a067520d3 HTTP/1.1
+DELETE http://localhost:8080/tasks/6345f423a0e046f19ab46385 HTTP/1.1

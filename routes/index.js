@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+router.use(express.json());
 
 router.use("/", require("./swagger"));
+
 router.use("/tasks", require("./tasks"));
 
 router.all("*", (req, res, next) => {

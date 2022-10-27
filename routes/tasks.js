@@ -3,7 +3,7 @@ const router = express.Router();
 
 const tasksController = require("../controllers/tasks");
 
-router.use(express.json());
+
 
 router
   .route("/")
