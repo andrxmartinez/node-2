@@ -5,8 +5,8 @@ const doc = {
     title: "ToDoList API",
     description: "contact information API",
   },
-  host: "localhost:8080",
-  schemes: ["http"],
+  host: "project2-am.onrender.com",
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger.json";
