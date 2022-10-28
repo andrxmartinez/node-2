@@ -35,15 +35,48 @@ exports.getSingleTask = async (req, res) => {
   }
 };
 
-exports.createTask = async (req, res) => {
-  console.log(req.body);
+exports.createTask = async (req, res, next) => {
+  // swagger.parameters["task"] = {
+  //   // in: "body",
+  //   // description: "Task object that needs to be added to the list",
+  //   // require: true,
+  //   // schema: {
+  //   activity: {
+  //     type: "string",
+  //   },
+  //   duration: {
+  //     type: "string",
+  //   },
+  //   date: {
+  //     type: "string",
+  //   },
+  //   time: {
+  //     type: "string",
+  //   },
+  //   place: {
+  //     type: "string",
+  //   },
+  //   description: {
+  //     type: String,
+  //   },
 
+  //   priority: {
+  //     type: String,
+  //   },
+
+  //   completed: {
+  //     type: Boolean,
+  //     default: false,
+  //   },
+  // };
+
+  // const { activity, duration, date, time, place } = req.body;
   try {
     const newTask = await Task.create(req.body);
     res.status(201).json({
       status: "success",
       data: {
-        newTask,
+        task: newTask,
       },
     });
   } catch (err) {
@@ -53,7 +86,42 @@ exports.createTask = async (req, res) => {
     });
   }
 };
-exports.updateTask = async (req, res) => {
+exports.updateTask = async (req, res, next) => {
+  // swagger.parameters["task"] = {
+  //   // in: "body",
+  //   // description: "Task object that needs to be added to the list",
+  //   // require: true,
+  //   // schema: {
+  //   activity: {
+  //     type: "string",
+  //   },
+  //   duration: {
+  //     type: "string",
+  //   },
+  //   date: {
+  //     type: "string",
+  //   },
+  //   time: {
+  //     type: "string",
+  //   },
+  //   place: {
+  //     type: "string",
+  //   },
+  //   description: {
+  //     type: String,
+  //   },
+
+  //   priority: {
+  //     type: String,
+  //   },
+
+  //   completed: {
+  //     type: Boolean,
+  //     default: false,
+  //   },
+  // };
+
+  // const { activity, duration, date, time, place } = req.body;
   try {
     const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
       new: true,

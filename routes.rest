@@ -26,17 +26,18 @@ Content-Type: application/json
 ###################################################
 ## UPDATE TASK
 
-PUT http://localhost:8080/tasks/6345f423a0e046f19ab46385 HTTP/1.1
+PUT http://localhost:8080/tasks/635b5c95ae81ea4d5f548435 HTTP/1.1
 Content-Type: application/json
 
 {
-  "activity": "Go party",
-  "duration": "3 hours",
-  "date": "10/12/2022",
-  "time": "09:00",
-  "place": "Rexburg Downtown",
-  "description": "go party with friends on the weekend",
-  "priority": "medium"
+  "activity": "get pizza",
+  "duration": "1 hour",
+  "date": "10/20/2022",
+  "time": "10:00",
+  "place": "Walmart",
+  "description": "go get pizza with the dudes",
+  "priority": "low",
+  "completed": "true"
 }
 
 ##############################################################################
