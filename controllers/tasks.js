@@ -1,4 +1,5 @@
 const Task = require("./../models/tasksModel");
+swagger = { parameters: {} };
 
 exports.getAllTasks = async (req, res) => {
   try {
@@ -87,41 +88,37 @@ exports.createTask = async (req, res, next) => {
   }
 };
 exports.updateTask = async (req, res, next) => {
-  // swagger.parameters["task"] = {
-  //   // in: "body",
-  //   // description: "Task object that needs to be added to the list",
-  //   // require: true,
-  //   // schema: {
-  //   activity: {
-  //     type: "string",
-  //   },
-  //   duration: {
-  //     type: "string",
-  //   },
-  //   date: {
-  //     type: "string",
-  //   },
-  //   time: {
-  //     type: "string",
-  //   },
-  //   place: {
-  //     type: "string",
-  //   },
-  //   description: {
-  //     type: String,
-  //   },
+  swagger.parameters["task"] = {
+    // schema: {
+    activity: {
+      type: "string",
+    },
+    duration: {
+      type: "string",
+    },
+    date: {
+      type: "string",
+    },
+    time: {
+      type: "string",
+    },
+    place: {
+      type: "string",
+    },
+    description: {
+      type: String,
+    },
 
-  //   priority: {
-  //     type: String,
-  //   },
+    priority: {
+      type: String,
+    },
 
-  //   completed: {
-  //     type: Boolean,
-  //     default: false,
-  //   },
-  // };
-
-  // const { activity, duration, date, time, place } = req.body;
+    completed: {
+      type: Boolean,
+      default: false,
+    },
+  };
+  const { activity, duration, date, time, place } = req.body;
   try {
     const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
