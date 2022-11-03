@@ -10,15 +10,15 @@ const doc = {
   schemes: ["http", "https"],
   securityDefinitions: {
     Authorization: {
-      type: "Bearer",
-      name: "Authorization",
-      in: "header",
+      type: "http",
+      scheme: "bearer",
+      bearerFormat: "JWT",
       description: "JWT Authorization header using the Bearer scheme.",
     },
   },
   security: [
     {
-      Authorization: [],
+      BearerAuth: [],
     },
   ],
 };
