@@ -65,8 +65,15 @@ exports.login = async (req, res) => {
 };
 
 exports.protect = async (req, res, next) => {
-  token = req.headers.authorization.split(" ")[1];
-  // 1) Getting token and check of it's there
+  // 1) Getting token and check if it's there
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  // token = req.headers.authorization.split(" ")[1];
   if (!token) {
     return res.status(401).json({
       status: "You are not logged in! Please log in to get access.",
