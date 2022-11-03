@@ -6,7 +6,20 @@ const doc = {
     description: "contact information API",
   },
   host: "project2-am.onrender.com",
-  schemes: ["https"],
+  schemes: ["http", "https"],
+  securityDefinitions: {
+    Authorization: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header",
+      description: "JWT Authorization header using the Bearer scheme.",
+    },
+  },
+  security: [
+    {
+      Authorization: [],
+    },
+  ],
 };
 
 const outputFile = "./swagger.json";

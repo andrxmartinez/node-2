@@ -8,8 +8,17 @@
   "host": "project2-am.onrender.com",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT Authorization header using the Bearer scheme."
+    }
+  },
   "paths": {
     "/api-docs": {
       "get": {
@@ -214,5 +223,10 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
 }
