@@ -13,9 +13,9 @@
   ],
   "securityDefinitions": {
     "Authorization": {
-      "type": "http",
-      "scheme": "bearer",
-      "bearerFormat": "JWT",
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
       "description": "JWT Authorization header using the Bearer scheme."
     }
   },
