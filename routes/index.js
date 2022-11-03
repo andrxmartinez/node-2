@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 router.use(express.json());
 
+const openCors = require("../middleware/openCors");
+const cors = require("cors");
+
 router.use("/", require("./swagger"));
 
 router.use("/tasks", require("./tasks"));
@@ -13,5 +16,15 @@ router.all("*", (req, res, next) => {
     message: `The requested URL ${req.originalUrl} '" was not found.`,
   });
 });
+
+//cors
+router.options(
+  cors({
+    origin: "*",
+    methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+  })
+);
+
+router.use(openCors);
 
 module.exports = router;

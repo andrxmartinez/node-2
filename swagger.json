@@ -20,6 +20,13 @@
     }
   },
   "paths": {
+    "{cors({origin*}": {
+      "options": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/api-docs": {
       "get": {
         "description": "",
