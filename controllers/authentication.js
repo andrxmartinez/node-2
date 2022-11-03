@@ -66,7 +66,6 @@ exports.login = async (req, res) => {
 
 exports.protect = async (req, res, next) => {
   token = req.headers.authorization.split(" ")[1];
-  console.log(token);
   // 1) Getting token and check of it's there
   if (!token) {
     return res.status(401).json({

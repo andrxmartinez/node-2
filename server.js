@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require("dotenv");
 const routes = require("./routes");
-const helmet = require("helmet");
 
 const app = express();
 dotenv.config({ path: "./.env" });
@@ -24,11 +23,6 @@ mongoose
       console.log(`App running on port ${port}...`);
     });
   });
-
-app.use(helmet());
-
-// Body parser, reading data from body into req.body
-app.use(express.json({ limit: "10kb" }));
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
