@@ -13,7 +13,7 @@
   ],
   "securityDefinitions": {
     "Authorization": {
-      "type": "apiKey",
+      "type": "Bearer",
       "name": "Authorization",
       "in": "header",
       "description": "JWT Authorization header using the Bearer scheme."
