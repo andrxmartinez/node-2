@@ -1,5 +1,6 @@
 const User = require("../models/usersModel");
 const jwt = require("jsonwebtoken");
+const { promisify } = require("util");
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -63,4 +64,28 @@ exports.login = async (req, res) => {
   });
 };
 
+exports.protect = async (req, res, next) => {
+  token = req.headers.authorization.split(" ")[1];
+  console.log(token);
+  // 1) Getting token and check of it's there
+  if (!token) {
+    return res.status(401).json({
+      status: "You are not logged in! Please log in to get access.",
+    });
+  } else {
+    // 2) Verification token
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
+    // 3) Check if user still exists
+    const currentUser = await User.findById(decoded.id);
+    if (!currentUser) {
+      return res.status(401).json({
+        status: "The user belonging to this token does no longer exist.",
+      });
+    }
+
+    // GRANT ACCESS TO PROTECTED ROUTE
+    req.user = currentUser;
+    next();
+  }
+};

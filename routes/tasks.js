@@ -2,12 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 const tasksController = require("../controllers/tasks");
-
-
+const authController = require("../controllers/authentication");
 
 router
   .route("/")
-  .get(tasksController.getAllTasks)
+  .get(authController.protect, tasksController.getAllTasks)
   .post(tasksController.createTask);
 
 router
